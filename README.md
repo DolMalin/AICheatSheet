@@ -6,7 +6,7 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months.
 ## Linear models
 
 <details>
-### <summary>k-Nearest Neighbor (kNN)</summary>
+<summary>k-Nearest Neighbor (kNN)</summary>
 
 <img src="assets/images/linearmodels/knn_concept.jpg" width=50% height=50%>
 
