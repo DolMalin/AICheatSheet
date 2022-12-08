@@ -1,5 +1,5 @@
 # AICheatSheet
-A non-exhaustive cheat sheet about what I learned in AI during the last months.
+A non-exhaustive cheat sheet about what I learned in AI during the last months, mostly about Classification, Computer Vision and Natural Language Processing.
 
 # Table of Contents
 * [1. Data](#data)
@@ -55,7 +55,13 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months.
 <a id="relu"></a><details>
 <summary>Rectified Linear Unit (ReLU)</summary>
 
-*@TODO*
+<p align="center"> <img src="assets/images/activationfunctions/relu.png" width=40% height=40%></p>
+
+* The most popular choice due to its simplicity of implementation and its good performances
+* It's a simple non-linear transformation defined as the maximum of that element and 0 
+* Can prevent **vanishing gradient** problem.
+$$ \operatorname{ReLU}(x) = \max(x, 0). $$
+
 </details>
 
 
@@ -63,7 +69,13 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months.
 <a id="leaky-relu"></a><details>
 <summary>Leaky Rectified Linear Unit (Leaky ReLU)</summary>
 
-*@TODO*
+<p align="center"> <img src="assets/images/activationfunctions/leakyrelu.png" width=35% height=35%></p>
+
+* Variant of [ReLU](#relu) activation function.
+* It permit some informations to still get through the network even when the argument is **negative**.
+$$\operatorname{pReLU}(x) = \max(0, x) + \alpha \min(0, x)$$
+* Where $\alpha$ is a learnable parameter.
+
 </details>
 
 
@@ -71,7 +83,11 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months.
 <a id="tanh"></a><details>
 <summary>Tanh</summary>
 
-*@TODO*
+<p align="center"> <img src="assets/images/activationfunctions/tanh.jpg" width=40% height=40%></p>
+
+* Known as **Hyperbolic Tangent**
+* A simple non-linear transformation that squashes its input in a range of (-1, 1)
+$$\operatorname{tanh}(x) = \frac{1 - \exp(-2x)}{1 + \exp(-2x)}$$
 </details>
 
 
@@ -79,7 +95,11 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months.
 <a id="sigmoid"></a><details>
 <summary>Sigmoid</summary>
 
-*@TODO*
+<p align="center"> <img src="assets/images/activationfunctions/sigmoid.jpg" width=40% height=40%></p>
+
+* Use to interpret the output as probabilities for **binary classification problems**.
+* Often replaced by a [ReLU](#relu) because it can causes **vanishing gradients**.
+
 </details>
 
 ---
@@ -89,7 +109,7 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months.
 <a id="knn"></a><details>
 <summary>k-Nearest Neighbor (kNN)</summary>
 
-<img src="assets/images/mlmodels/knn_concept.jpg" width=50% height=50%>
+<p align="center"><img src="assets/images/mlmodels/knn_concept.jpg" width=50% height=50%></p>
 
 * It classifies a new entry by assigning it to the class of its closests neighbors.
 * $k$ is the number of neighbors (datapoints) to compare to our new data point.
@@ -106,7 +126,7 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months.
 <a id="svm"></a><details>
 <summary> Support Vector Machine (SVM)</summary>
 
-<img src="assets/images/mlmodels/svm.png" width=30% heightsoftmax-classifier=30%>
+<p align="center"><img src="assets/images/mlmodels/svm.png" width=30% heightsoftmax-classifier=30%></p>
 
 * It tries to find a line that **maximises** the separation between a **two-class** (SVM) or more (Multiclass SVM) dataset.
 * The datapoints with the minimum distance to the hyperplane are called **Support Vectors**.
@@ -117,7 +137,7 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months.
 	* Sigmoid
 	* Radial Basis Function (RBF)
 
-<img src="assets/images/mlmodels/svmkernels.webp" width=40% height=40%>	
+<p align="center"><img src="assets/images/mlmodels/svmkernels.webp" width=40% height=40%></p>
 
 *These functions will determine the smoothness and efficiency of class separation.*
 * Use the [hinge loss](#loss-functions) to threshold the result to 0 if the correct score is greater than the incorrect class score by at least the margin.
@@ -131,7 +151,7 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months.
 <a id="softmax-classifier"></a><details>
 <summary> Softmax Classifier </summary>
 
-<img src="assets/images/mlmodels/softmaxclassifier.png" width=45% height=45%>
+<p align="center"><img src="assets/images/mlmodels/softmaxclassifier.png" width=45% height=45%></p>
 
 * Outputs a **propabilistic** interpretation *(due to [softmax](#softmax))*
 	* All the outputs values of the function will be scaled between 0 and 1
