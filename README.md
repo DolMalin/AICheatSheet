@@ -10,6 +10,7 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months.
 	1. [Loss functions](#loss-functions)
 	
 # Data Preparation
+*[ Incomming ]*
 # Models
 ## Machine Learning
 
@@ -65,13 +66,12 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months.
 	* All the outputs values of the function will be scaled between 0 and 1
 * Uses a [Cross-Entropy Loss](#cross-entropy-loss)
 * Similar results as [SVM](#svm)
-
-
-
+* Due to exponentials, some values can be very lage and causes computing problems
 
 </details>
 
 ## Deep Learning
+*[ Incomming ]*
 
 ---
 # Training
@@ -99,12 +99,12 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months.
 	1. The discovered probability distribution of a ML classification model
 	2. The predicted distribution
 * Often compared to [log loss](#log-loss)
-* **Binay** Cross-Entropy Loss:
+* **Binary** Cross-Entropy Loss:
 	* $l = -(ylog(p) + (1 - y)log(1 - p))$
-	* Where $p$ is the **predicted probability** and $y$ is the **actual outcome** (0 or 1)
+	* Where $p$ is the *predicted probability* and $y$ is the *actual outcome* (0 or 1)
 * **Multiclass** Cross-Entropy Loss:
-	* $-\sum_{c=1}^My_{o,c}\log(p_{o,c})$
-	* Where $M$ is the **number of classes**
+	* $l =-\sum_i^C y_i log(p_i)$
+	* Where $y_i$ is the *actual outcome*, $p_i$ is the *predicted probability* of the $i^{th}$ label, and $C$ the *number of classes*
 	* We calculate a separate loss for each label and sum the result.
 
 </details>
@@ -113,4 +113,6 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months.
 [//]: #log-loss
 <a id="log-loss"></a><details>
 <summary> Log Loss</summary>
+
+*[ Incomming ]*
 </details>
