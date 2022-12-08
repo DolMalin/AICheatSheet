@@ -37,6 +37,8 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months, 
 		* [Gradient](#gradient)
 		* [Forward Propagation](#forward-propagation)
 		* [Backward Propagation](#backward-propagation)
+* [4. Sources](#sources)
+	
 
 ---
 
@@ -320,3 +322,11 @@ $$\sigma(z_i) = \frac{e^{z_{i}}}{\sum_{j=1}^K e^{z_{j}}}$$
 
 *@TODO*
 </details>
+
+--- 
+# Sources
+* https://d2l.ai/index.html
+* https://cs231n.github.io/
+* https://www.v7labs.com/blog/neural-networks-activation-functions
+* https://www.geeksforgeeks.org/activation-functions-neural-networks/
+* https://towardsdatascience.com/activation-functions-neural-networks-1cbd9f8d91d6
