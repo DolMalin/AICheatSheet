@@ -23,8 +23,8 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months.
 * Convert a vector of real numbers into a *probability distribution* of these outcomes
 * Often used as the last [activation function](#activation-functions) of a Neural Network to normalize ouptut as probabilities
 * Often paired with **argmax** function that permits to get the highest probability
-* $\sigma(z_i) = \frac{e^{z_{i}}}{\sum_{j=1}^K e^{z_{j}}}$
-	* Where $z$ is the vector of *raw outputs* from the Neural Network, $K$  is the number of classes.
+$$\sigma(z_i) = \frac{e^{z_{i}}}{\sum_{j=1}^K e^{z_{j}}}$$
+* Where $z$ is the vector of *raw outputs* from the Neural Network, $K$  is the number of classes.
 	* We divide the exponential of one element of the output to the sum of all exponentials values of the output vector.
 </details>
 
@@ -124,8 +124,8 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months.
 * Also known as **maximum-margin loss**.
 * Used for training in **maximum-margin** classification.
 * Known for being used in [Support Vector Machine](#svm) (SVM)
-* $\ell(y) = max(0, 1 - t \cdot y)$
-	* Where $t$ is the **actual outcome** *(either -1 or 1)* and $y$ is the **output** of the classifier. 
+$$\ell(y) = max(0, 1 - t \cdot y)$$
+* Where $t$ is the **actual outcome** *(either -1 or 1)* and $y$ is the **output** of the classifier. 
 </details>
 
 
@@ -140,12 +140,12 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months.
 	2. The predicted distribution
 * Often compared to [log loss](#log-loss)
 * **Binary** Cross-Entropy Loss:
-	* $l = -(ylog(p) + (1 - y)log(1 - p))$
-	* Where $p$ is the *predicted probability* and $y$ is the *actual outcome* (0 or 1)
+$$l = -(ylog(p) + (1 - y)log(1 - p))$$
+* Where $p$ is the *predicted probability* and $y$ is the *actual outcome* (0 or 1)
 * **Multiclass** Cross-Entropy Loss:
-	* $l =-\sum_i^C y_i log(p_i)$
-	* Where $y_i$ is the *actual outcome*, $p_i$ is the *predicted probability* of the $i^{th}$ label, and $C$ the *number of classes*
-	* We calculate a separate loss for each label and sum the result.
+$$l =-\sum_i^C y_i log(p_i)$$
+* Where $y_i$ is the *actual outcome*, $p_i$ is the *predicted probability* of the $i^{th}$ label, and $C$ the *number of classes*
+* We calculate a separate loss for each label and sum the result.
 
 </details>
 
