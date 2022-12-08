@@ -73,6 +73,7 @@ $$ \operatorname{ReLU}(x) = \max(x, 0). $$
 
 * Variant of [ReLU](#relu) activation function.
 * It permit some informations to still get through the network even when the argument is **negative**.
+
 $$\operatorname{pReLU}(x) = \max(0, x) + \alpha \min(0, x)$$
 * Where $\alpha$ is a learnable parameter.
 
