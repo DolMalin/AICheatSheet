@@ -2,17 +2,17 @@
 A non-exhaustive cheat sheet about what I learned in AI during the last months.
 
 # Table of Contents
-* [**1. Data**](#data)
-	* [**1.1. Preprocessing**](#preprocessing)
+* [**1.** Data](#data)
+	* [**1.1.** Preprocessing](#preprocessing)
 
-* [**2. Neural Networks**](#neural-networks)
-	* [**2.1 Activation Functions**](#activation-functions)
-		* [**1. Softmax**](#softmax)
-		* [**2. Rectified Linear Unit**](#relu)
-		* [**3. Tanh**](#tanh)
-		* [**4. Sigmoid**](#sigmoid)
-	* [**2. Machine Learning Models**](#machine-learning)
-		* [**1. k-Nearest Neighbor (kNN)**](#knn)
+* [**2.** Neural Networks](#neural-networks)
+	* [**2.1** Activation Functions](#activation-functions)
+		* [**2.1.1.** Softmax](#softmax)
+		* [**2.2.2.** Rectified Linear Unit](#relu)
+		* [**2.2.3.** Tanh](#tanh)
+		* [**2.2.4.** Sigmoid](#sigmoid)
+	* [**2.** Machine Learning Models](#machine-learning)
+		* [**2.1.** k-Nearest Neighbor (kNN)](#knn)
 		* [**2. Support Vector Machine (SVM)**](#svm)
 		* [**3. Softmax Classifier**](#softmax-classifier)
 		* [**4. Multi-Layer Perceptron**](#mlp)
