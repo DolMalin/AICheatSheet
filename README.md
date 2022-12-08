@@ -60,7 +60,8 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months, 
 * The most popular choice due to its simplicity of implementation and its good performances
 * It's a simple non-linear transformation defined as the maximum of that element and 0 
 * Can prevent **vanishing gradient** problem.
-$$ \operatorname{ReLU}(x) = \max(x, 0). $$
+
+$$ \operatorname{ReLU}(x) = \max(x, 0) $$
 
 </details>
 
