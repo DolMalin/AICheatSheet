@@ -2,16 +2,56 @@
 A non-exhaustive cheat sheet about what I learned in AI during the last months.
 
 # Table of Contents
-1. [Data Preparation](#data-preparation)
+1. [Data](#data)
 2. [Models](#models)
-	1. [Machine Learning](#machine-learning)
-	2. [Deep Learning](#deep-learning)
+	1. [Components](#components)
+		1. [Activation Functions](#activation-functions)
+	2. [Machine Learning](#machine-learning)
+	3. [Deep Learning](#deep-learning)
 3. [Training](#training)
 	1. [Loss functions](#loss-functions)
 	
-# Data Preparation
-*[ Incomming ]*
+# Data
+*@TODO*
 # Models
+## Components
+### Activation Functions
+[//]: #softmax
+<a id="softmax"></a><details>
+<summary>Softmax</summary>
+
+* Convert a vector of real numbers into a *probability distribution* of these outcomes
+* Often used as the last [activation function](#activation-functions) of a Neural Network to normalize ouptut as probabilities
+* Often paired with **argmax** function that permits to get the highest probability
+* $\sigma(z_i) = \frac{e^{z_{i}}}{\sum_{j=1}^K e^{z_{j}}}$
+	* Where $z$ is the vector of *raw outputs* from the Neural Network, $K$  is the number of classes.
+	* We divide the exponential of one element of the output to the sum of all exponentials values of the output vector.
+</details>
+
+
+[//]: #relu
+<a id="relu"></a><details>
+<summary>Rectified Linear Unit (ReLU)</summary>
+
+*@TODO*
+</details>
+
+
+[//]: #tanh
+<a id="tanh"></a><details>
+<summary>TanH</summary>
+
+*@TODO*
+</details>
+
+
+[//]: #sigmoid
+<a id="sigmoid"></a><details>
+<summary>Sigmoid</summary>
+
+*@TODO*
+</details>
+
 ## Machine Learning
 
 [//]: #KNN
@@ -57,21 +97,21 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months.
 
 
 [//]: #softmax-classifier
-<a id="softmax-classifier"></a><details open>
+<a id="softmax-classifier"></a><details>
 <summary> Softmax Classifier</summary>
 
 <img src="assets/images/mlmodels/softmaxclassifier.png" width=45% height=45%>
 
-* Outputs a propabilistic interpretation *(due to softmax)*
+* Outputs a **propabilistic** interpretation *(due to [softmax](#softmax))*
 	* All the outputs values of the function will be scaled between 0 and 1
 * Uses a [Cross-Entropy Loss](#cross-entropy-loss)
-* Similar results as [SVM](#svm)
-* Due to exponentials, some values can be very lage and causes computing problems
+* Similar results as [Support Vector Machine](#svm) (SVM)
+* Provides kind of probabilities that are easier to interpret than SVM.
 
 </details>
 
 ## Deep Learning
-*[ Incomming ]*
+*@TODO*
 
 ---
 # Training
@@ -81,7 +121,7 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months.
 <a id="hinge-loss"></a><details>
 <summary> Hinge Loss</summary>
 
-
+* Also known as **maximum-margin loss**.
 * Used for training in **maximum-margin** classification.
 * Known for being used in [Support Vector Machine](#svm) (SVM)
 * $\ell(y) = max(0, 1 - t \cdot y)$
@@ -90,7 +130,7 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months.
 
 
 [//]: #cross-entropy-loss
-<a id="cross-entropy-loss"></a><details open>
+<a id="cross-entropy-loss"></a><details>
 <summary> Cross-Entropy Loss</summary>
 
 * Used in **binary** and **multiclass** classification
@@ -114,5 +154,5 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months.
 <a id="log-loss"></a><details>
 <summary> Log Loss</summary>
 
-*[ Incomming ]*
+*@TODO*
 </details>
