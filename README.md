@@ -6,45 +6,61 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months.
 	* [1.1 Preprocessing](#preprocessing)
 * [2. Neural Networks](#neural-networks)
 	* [2.1 Activation Functions](#activation-functions)
-		* [2.1.1 Softmax](#softmax)
-		* [2.2.2 Rectified Linear Unit](#relu)
-		* [2.2.3 Tanh](#tanh)
-		* [2.2.4 Sigmoid](#sigmoid)
-	* [2. Machine Learning Models](#machine-learning)
-		* [2.1 k-Nearest Neighbor (kNN)](#knn)
-		* [2.2 Support Vector Machine (SVM)](#svm)
-		* [2.3 Softmax Classifier](#softmax-classifier)
-		* [2.4 Multi-Layer Perceptron](#mlp)
-	* [3. Deep Learning Models](#deep-learning)
-		* [3.1 Convolutional Neural Network (CNN)](#convolutional-neural-network)
-		* [3.2 Recurrent Neural Network (RNN)](#recurrent-neural-network)
+		* [Rectified Linear Unit (ReLU)](#relu)
+		* [Leaky Rectified Linear Unit (Leaky ReLU)](#relu)
+		* [Tanh](#tanh)
+		* [Sigmoid](#sigmoid)
+	* [2.2 Models]()
+		* [Machine Learning](#machine-learning)
+			* [k-Nearest Neighbor (kNN)](#knn)
+			* [Support Vector Machine (SVM)](#svm)
+			* [Softmax Classifier](#softmax-classifier)
+			* [Multi-Layer Perceptron](#mlp)
+		* [Deep Learning](#deep-learning)
+			* [Convolutional Neural Network (CNN)](#convolutional-neural-network)
+			* [Recurrent Neural Network (RNN)](#recurrent-neural-network)
 * [3. Training](#training)
 	* [3.1 Loss functions](#loss-functions)
+		* [Hinge Loss](#hinge-loss)
+		* [Cross-Entropy Loss](#cross-entropy-loss)
+		* [Log Loss](#log-loss)
+		* [Mean Squared Error (MSE)](#mse)
+		* [Likelihood Loss](#likelihood-loss)
 	* [3.2 Regularization functions](#regularization-functions)
+		* [L1 Norm](#l1-norm)
+		* [L2 Norm](#l2-norm)
+		* [Dropout](#dropout)
+	* [3.3 Normalization functions](#normalization-functions)
+		* [Softmax](#softmax)
 	* [3.3 Stochastic Gradient Descent (SGD)](#stochastic-gradient-descend-sgd)
-	
+		* [Gradient](#gradient)
+		* [Forward Propagation](#forward-propagation)
+		* [Backward Propagation](#backward-propagation)
+
+---
+
 # Data
-*@TODO*
 ## Preprocessing
 *@TODO*
+
 # Neural Networks
 ## Activation Functions
-[//]: #softmax
-<a id="softmax"></a><details>
-<summary>Softmax</summary>
-
-* Convert a vector of real numbers into a *probability distribution* of these outcomes
-* Often used as the last [activation function](#activation-functions) of a Neural Network to normalize ouptut as probabilities
-* Often paired with **argmax** function that permits to get the highest probability
-$$\sigma(z_i) = \frac{e^{z_{i}}}{\sum_{j=1}^K e^{z_{j}}}$$
-* Where $z$ is the vector of *raw outputs* from the Neural Network, $K$  is the number of classes.
-	* We divide the exponential of one element of the output to the sum of all exponentials values of the output vector.
-</details>
+> The main role of an activation function is to add **non-linearity** into the output of a neuron.
+>
+> These functions will decides if a neuron should be **activated** *(letting signal flow through)* or not.
 
 
 [//]: #relu
 <a id="relu"></a><details>
 <summary>Rectified Linear Unit (ReLU)</summary>
+
+*@TODO*
+</details>
+
+
+[//]: #leaky-relu
+<a id="leaky-relu"></a><details>
+<summary>Leaky Rectified Linear Unit (Leaky ReLU)</summary>
 
 *@TODO*
 </details>
@@ -65,7 +81,8 @@ $$\sigma(z_i) = \frac{e^{z_{i}}}{\sum_{j=1}^K e^{z_{j}}}$$
 *@TODO*
 </details>
 
-## Machine Learning
+---
+## Machine Learning Models
 
 [//]: #KNN
 <a id="knn"></a><details>
@@ -130,11 +147,13 @@ $$\sigma(z_i) = \frac{e^{z_{i}}}{\sum_{j=1}^K e^{z_{j}}}$$
 *TODO*
 </details>
 
-## Deep Learning
+---
+## Deep Learning Models
 ### Convolutional Neural Network
 
 *@TODO*
 
+---
 
 ### Recurrent Neural Network
 *@TODO*
@@ -142,6 +161,9 @@ $$\sigma(z_i) = \frac{e^{z_{i}}}{\sum_{j=1}^K e^{z_{j}}}$$
 ---
 # Training
 ## Loss functions
+
+> The role of a loss function *(also called cost function)* is to evaluate the error between the prediction and the targetted value.
+
 
 [//]: #hinge-loss
 <a id="hinge-loss"></a><details>
@@ -184,19 +206,36 @@ $$l =-\sum_i^C y_i log(p_i)$$
 </details>
 
 
-## Regularization Functions
-
-[//]: #l1
-<a id="l1"></a><details>
-<summary> L1 </summary>
+[//]: #mse
+<a id="mse"></a><details>
+<summary> Mean Squared Error (MSE)</summary>
 
 *@TODO*
 </details>
 
 
-[//]: #l2
-<a id="l2"></a><details>
-<summary> L2 </summary>
+[//]: #likelihood-loss
+<a id="likelihood-loss"></a><details>
+<summary> Likelihood Loss</summary>
+
+*@TODO*
+</details>
+
+---
+
+## Regularization Functions
+
+[//]: #l1-norm
+<a id="l1-norm"></a><details>
+<summary> L1 Norm</summary>
+
+*@TODO*
+</details>
+
+
+[//]: #l2-norm
+<a id="l2-norm"></a><details>
+<summary> L2 Norm</summary>
 
 *@TODO*
 </details>
@@ -209,7 +248,30 @@ $$l =-\sum_i^C y_i log(p_i)$$
 *@TODO*
 </details>
 
+---
+## Normalization Functions
+
+[//]: #softmax
+<a id="softmax"></a><details>
+<summary>Softmax</summary>
+
+* Convert a vector of real numbers into a *probability distribution* of these outcomes
+* Often used as the last *activation-functions* of a Neural Network to normalizes ouptuts as probabilities
+* Often paired with **argmax** function that permits to get the highest probability
+$$\sigma(z_i) = \frac{e^{z_{i}}}{\sum_{j=1}^K e^{z_{j}}}$$
+* Where $z$ is the vector of *raw outputs* from the Neural Network, $K$  is the number of classes.
+	* We divide the exponential of one element of the output to the sum of all exponentials values of the output vector.
+</details>
+
 ## Stochastic Gradient Descend (SGD)
+[//]: #gradient
+<a id="gradient"></a><details>
+<summary> Gradient</summary>
+
+*@TODO*
+</details>
+
+
 [//]: #forward-propagation
 <a id="forward-propagation"></a><details>
 <summary> Forward Propagation</summary>
