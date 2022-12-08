@@ -32,6 +32,7 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months.
 		* [Dropout](#dropout)
 	* [3.3 Normalization functions](#normalization-functions)
 		* [Softmax](#softmax)
+		* [Batch Normalization](#batch-normalization)
 	* [3.3 Stochastic Gradient Descent (SGD)](#stochastic-gradient-descend-sgd)
 		* [Gradient](#gradient)
 		* [Forward Propagation](#forward-propagation)
@@ -262,6 +263,17 @@ $$\sigma(z_i) = \frac{e^{z_{i}}}{\sum_{j=1}^K e^{z_{j}}}$$
 * Where $z$ is the vector of *raw outputs* from the Neural Network, $K$  is the number of classes.
 	* We divide the exponential of one element of the output to the sum of all exponentials values of the output vector.
 </details>
+
+
+[//]: #batch-normalization
+<a id="batch-normalization"></a><details>
+<summary>Batch Normalization</summary>
+
+*@TODO*
+</details>
+
+
+---
 
 ## Stochastic Gradient Descend (SGD)
 [//]: #gradient
