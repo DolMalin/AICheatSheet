@@ -3,19 +3,33 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months.
 
 # Table of Contents
 1. [Data](#data)
-2. [Models](#models)
-	1. [Components](#components)
-		1. [Activation Functions](#activation-functions)
-	2. [Machine Learning](#machine-learning)
-	3. [Deep Learning](#deep-learning)
+	1. [Preprocessing](#preprocessing)
+2. [Neural Networks](#neural-networks)
+	1. [Activation Functions](#activation-functions)
+		1. [Softmax](#softmax)
+		2. [Rectified Linear Unit](#relu)
+		3. [Tanh](#tanh)
+		4. [Sigmoid](#sigmoid)
+	2. [Machine Learning Models](#machine-learning)
+		1. [k-Nearest Neighbor (kNN)](#knn)
+		2. [Support Vector Machine (SVM)](#svm)
+		3. [Softmax Classifier](#softmax-classifier)
+		4. [Multi-Layer Perceptron](#mlp)
+	3. [Deep Learning Models](#deep-learning)
+		1. [Convolutional Neural Network (CNN)](#convolutional-neural-network)
+		2. [Recurrent Neural Network (RNN)](#recurrent-neural-network)
+
 3. [Training](#training)
 	1. [Loss functions](#loss-functions)
+	2. [Regularization functions](#regularization-functions)
+	3. [Stochastic Gradient Descent (SGD)](#stochastic-gradient-descend-sgd)
 	
 # Data
 *@TODO*
-# Models
-## Components
-### Activation Functions
+## Preprocessing
+*@TODO*
+# Neural Networks
+## Activation Functions
 [//]: #softmax
 <a id="softmax"></a><details>
 <summary>Softmax</summary>
@@ -39,7 +53,7 @@ $$\sigma(z_i) = \frac{e^{z_{i}}}{\sum_{j=1}^K e^{z_{j}}}$$
 
 [//]: #tanh
 <a id="tanh"></a><details>
-<summary>TanH</summary>
+<summary>Tanh</summary>
 
 *@TODO*
 </details>
@@ -73,7 +87,7 @@ $$\sigma(z_i) = \frac{e^{z_{i}}}{\sum_{j=1}^K e^{z_{j}}}$$
 
 [//]: #SVM
 <a id="svm"></a><details>
-<summary> Support Vector Machine and Multiclass Support Vector Machine (SVM)</summary>
+<summary> Support Vector Machine (SVM)</summary>
 
 <img src="assets/images/mlmodels/svm.png" width=30% heightsoftmax-classifier=30%>
 
@@ -98,7 +112,7 @@ $$\sigma(z_i) = \frac{e^{z_{i}}}{\sum_{j=1}^K e^{z_{j}}}$$
 
 [//]: #softmax-classifier
 <a id="softmax-classifier"></a><details>
-<summary> Softmax Classifier</summary>
+<summary> Softmax Classifier </summary>
 
 <img src="assets/images/mlmodels/softmaxclassifier.png" width=45% height=45%>
 
@@ -107,10 +121,23 @@ $$\sigma(z_i) = \frac{e^{z_{i}}}{\sum_{j=1}^K e^{z_{j}}}$$
 * Uses a [Cross-Entropy Loss](#cross-entropy-loss)
 * Similar results as [Support Vector Machine](#svm) (SVM)
 * Provides kind of probabilities that are easier to interpret than SVM.
+</details>
 
+
+[//]: #mlp
+<a id="mlp"></a><details>
+<summary> Multi-Layer Perceptron (MLP) </summary>
+
+*TODO*
 </details>
 
 ## Deep Learning
+### Convolutional Neural Network
+
+*@TODO*
+
+
+### Recurrent Neural Network
 *@TODO*
 
 ---
@@ -153,6 +180,48 @@ $$l =-\sum_i^C y_i log(p_i)$$
 [//]: #log-loss
 <a id="log-loss"></a><details>
 <summary> Log Loss</summary>
+
+*@TODO*
+</details>
+
+
+## Regularization Functions
+
+[//]: #l1
+<a id="l1"></a><details>
+<summary> L1 </summary>
+
+*@TODO*
+</details>
+
+
+[//]: #l2
+<a id="l2"></a><details>
+<summary> L2 </summary>
+
+*@TODO*
+</details>
+
+
+[//]: #dropout
+<a id="dropout"></a><details>
+<summary> Dropout </summary>
+
+*@TODO*
+</details>
+
+## Stochastic Gradient Descend (SGD)
+[//]: #forward-propagation
+<a id="forward-propagation"></a><details>
+<summary> Forward Propagation</summary>
+
+*@TODO*
+</details>
+
+
+[//]: #backward-propagation
+<a id="backward-propagation"></a><details>
+<summary> Backward Propagation</summary>
 
 *@TODO*
 </details>
