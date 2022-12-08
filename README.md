@@ -23,7 +23,9 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months.
 * Convert a vector of real numbers into a *probability distribution* of these outcomes
 * Often used as the last [activation function](#activation-functions) of a Neural Network to normalize ouptut as probabilities
 * Often paired with **argmax** function that permits to get the highest probability
-$$\sigma(z_i) = \frac{e^{z_{i}}}{\sum_{j=1}^K e^{z_{j}}}$$
+```math 
+\sigma(z_i) = \frac{e^{z_{i}}}{\sum_{j=1}^K e^{z_{j}}}
+```
 * Where $z$ is the vector of *raw outputs* from the Neural Network, $K$  is the number of classes.
 	* We divide the exponential of one element of the output to the sum of all exponentials values of the output vector.
 </details>
