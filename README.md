@@ -177,7 +177,7 @@ $$\operatorname{tanh}(x) = \frac{1 - \exp(-2x)}{1 + \exp(-2x)}$$
 *  It can distinguish data that is not **linearly separable**.
 * We can compute the different layers this way:
 
-$$ \mathbf{H} =  \sigma(\mathbf{X} \mathbf{W}^{(1)} + \mathbf{b}^{(1)}) $$
+$$ H =  \sigma(X{W}^{(1)} + b^{(1)}) $$
 $$ \mathbf{O} = \mathbf{H}\mathbf{W}^{(2)} + \mathbf{b}^{(2)} $$
 
 * Where $H$ is the **hidden layer,** $\sigma$  is the **activation function**, $X$ is the **input data,** $W$ is the **weights,** $b$ is the **bias**, $O$ is the **output layer**.
