@@ -184,7 +184,7 @@ $$\operatorname{tanh}(x) = \frac{1 - \exp(-2x)}{1 + \exp(-2x)}$$
 $$\mathbf{H} =  \sigma(\mathbf{X} \mathbf{W}^{(1)} + \mathbf{b}^{(1)})$$
 $$\mathbf{O} = \mathbf{H}\mathbf{W}^{(2)} + \mathbf{b}^{(2)}$$
 
-* *Where $H$ is the hidden layer, $\sigma$  is the activation function, $X$ is the input data, $W$ is the weights, $b$ is the bias, $O$ is the output layer*
+* Where $H$ is the hidden layer, $\sigma$  is the activation function, $X$ is the input data, $W$ is the weights, $b$ is the bias, $O$ is the output layer
 
 </details>
 
@@ -214,7 +214,7 @@ $$\mathbf{O} = \mathbf{H}\mathbf{W}^{(2)} + \mathbf{b}^{(2)}$$
 * Used for training in **maximum-margin** classification.
 * Known for being used in [Support Vector Machine](#svm) (SVM)
 $$\ell(y) = max(0, 1 - t \cdot y)$$
-* *Where $t$ is the actual outcome (either -1 or 1) and $y$ is the output of the classifier*
+* Where $t$ is the actual outcome (either -1 or 1) and $y$ is the output of the classifier
 </details>
 
 
@@ -230,10 +230,10 @@ $$\ell(y) = max(0, 1 - t \cdot y)$$
 	2. The predicted distribution
 * **Binary** Cross-Entropy Loss:
 $$l = -(ylog(\hat{y}) + (1 - y)log(1 - \hat{y}))$$
-* Where $\hat{y}$ is the *predicted value* and $y$ is the *actual value* (0 or 1)
+* Where $\hat{y}$ is the predicted value and $y$ is the actual value (0 or 1)
 * **Multiclass** Cross-Entropy Loss:
 $$l =-\sum_{i=1}^N y_i log(\hat{y}_i)$$
-* *Where $y_i$ is the actual value, $\hat{y}_i$ is the predicted value of the $i^{th}$ label, and $N$ the number of classes*
+* Where $y_i$ is the actual value, $\hat{y}_i$ is the predicted value of the $i^{th}$ label, and $N$ the number of classes
 * We calculate a separate loss for each label and sum the result.
 
 </details>
@@ -247,7 +247,7 @@ $$l =-\sum_{i=1}^N y_i log(\hat{y}_i)$$
 * Similar implementation as [MAE](#mae) Loss, with a huge **error penalty** due to the **squaring part** of the function.
 * It squares the difference between the predictions and the ground truth. and average it across the whole dataset.
 $$\mathbf{MSE} = \dfrac{1}{N}\sum_{i=1}^{N}(y_i - \hat{y}_i)^2$$
-* *Where $N$ is the number of samples we are testing against, $y$ is the actual value and $\hat{y}$ is the predicted value*
+* Where $N$ is the number of samples we are testing against, $y$ is the actual value and $\hat{y}$ is the predicted value
 
 </details>
 
@@ -259,7 +259,7 @@ $$\mathbf{MSE} = \dfrac{1}{N}\sum_{i=1}^{N}(y_i - \hat{y}_i)^2$$
 * Used in **regression** problems.
 * Similar implementation as [MSE](#mse) Loss, with the **absolute values** of the prediction and the ground truth instead of the squared **error penalty** of these values.
 $$\mathbf{MAE} = \dfrac{1}{N}\sum_{i=1}^{N}\lvert y_i - \hat{y}_i\lvert$$
-* *Where $N$ is the number of samples we are testing against, $y$ is the actual value and $\hat{y}$ is the predicted value*
+* Where $N$ is the number of samples we are testing against, $y$ is the actual value and $\hat{y}$ is the predicted value
 
 
 </details>
