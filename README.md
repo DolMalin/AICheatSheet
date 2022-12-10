@@ -77,7 +77,7 @@ $$ \operatorname{ReLU}(x) = \max(x, 0) $$
 * Variant of [ReLU](#relu) activation function.
 * It permit some informations to still get through the network even when the argument is **negative**.
 
-$$\operatorname{pReLU}(x) = \max(0, x) + \alpha \min(0, x)$$
+$$\operatorname{leaky ReLU}(x) = \max(0, x) + \alpha \min(0, x)$$
 * Where $\alpha$ is a learnable parameter.
 
 </details>
@@ -107,7 +107,9 @@ $$\operatorname{tanh}(x) = \frac{1 - \exp(-2x)}{1 + \exp(-2x)}$$
 </details>
 
 ---
-## Machine Learning Models
+## Models
+
+### Machine Learning
 
 [//]: #KNN
 <a id="knn"></a><details>
@@ -134,7 +136,8 @@ $$\operatorname{tanh}(x) = \frac{1 - \exp(-2x)}{1 + \exp(-2x)}$$
 
 * It tries to find a line that **maximises** the separation between a **two-class** (SVM) or more (Multiclass SVM) dataset.
 * The datapoints with the minimum distance to the hyperplane are called **Support Vectors**.
-* Requires to specify a **kernel function** to compute datapoint separation:
+* Can performs **non-linear** classifications using a **kernel trick**, implicitly mapping their inputs into high-dimensional feature spaces.
+* The different **kernel functions** will define the smoothness and efficiency of the separation :
 	* Linear
 	* Polynomial
 	* Gaussian
@@ -157,10 +160,9 @@ $$\operatorname{tanh}(x) = \frac{1 - \exp(-2x)}{1 + \exp(-2x)}$$
 
 <p align="center"><img src="assets/images/mlmodels/softmaxclassifier.png" width=45% height=45%></p>
 
+* Similar architecture and results as [Support Vector Machine](#svm) (SVM), but uses a [Cross-Entropy Loss](#cross-entropy-loss)
 * Outputs a **propabilistic** interpretation *(due to [softmax](#softmax))*
 	* All the outputs values of the function will be scaled between 0 and 1
-* Uses a [Cross-Entropy Loss](#cross-entropy-loss)
-* Similar results as [Support Vector Machine](#svm) (SVM)
 * Provides kind of probabilities that are easier to interpret than SVM.
 </details>
 
@@ -169,18 +171,28 @@ $$\operatorname{tanh}(x) = \frac{1 - \exp(-2x)}{1 + \exp(-2x)}$$
 <a id="mlp"></a><details>
 <summary> Multi-Layer Perceptron (MLP) </summary>
 
-*TODO*
+<p align="center"><img src="assets/images/mlmodels/mlp.png" width=45% height=45%></p>
+
+* A **fully-connected feedforward** neural network.
+* Contains **hidden layers** between input and output.
+*  It can distinguish data that is not **linearly separable**.
+* We can compute the different layers this way:
+$$\begin{split}\begin{aligned}
+    \mathbf{H} & = \sigma(\mathbf{X} \mathbf{W}^{(1)} + \mathbf{b}^{(1)}) \\
+    \mathbf{O} & = \mathbf{H}\mathbf{W}^{(2)} + \mathbf{b}^{(2)}\\
+\end{aligned}\end{split}$$
+* Where $H$ is the **hidden layer,** $\sigma$  is the **activation function**, $X$ is the **input data,** $W$ is the **weights,** $b$ is the **bias**, $O$ is the **output layer**.
 </details>
 
 ---
-## Deep Learning Models
-### Convolutional Neural Network
+### Deep Learning
+#### Convolutional Neural Network
 
 *@TODO*
 
 ---
 
-### Recurrent Neural Network
+#### Recurrent Neural Network
 *@TODO*
 
 ---
@@ -325,8 +337,9 @@ $$\sigma(z_i) = \frac{e^{z_{i}}}{\sum_{j=1}^K e^{z_{j}}}$$
 
 --- 
 # Sources
-* https://d2l.ai/index.html
 * https://cs231n.github.io/
 * https://www.v7labs.com/blog/neural-networks-activation-functions
 * https://www.geeksforgeeks.org/activation-functions-neural-networks/
 * https://towardsdatascience.com/activation-functions-neural-networks-1cbd9f8d91d6
+* https://en.wikipedia.org/wiki/Multilayer_perceptron
+* https://d2l.ai/chapter_multilayer-perceptrons/index.html
