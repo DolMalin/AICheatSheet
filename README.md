@@ -23,20 +23,24 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months, 
 	* [3.1 Loss functions](#loss-functions)
 		* [Hinge Loss](#hinge-loss)
 		* [Cross-Entropy Loss](#cross-entropy-loss)
-		* [Log Loss](#log-loss)
 		* [Mean Squared Error (MSE)](#mse)
+		* [Mean Absolute Error (MAE)](#mse)
 		* [Likelihood Loss](#likelihood-loss)
 	* [3.2 Regularization functions](#regularization-functions)
+		* [Weight Decay](#weight-decay)
 		* [L1 Norm](#l1-norm)
 		* [L2 Norm](#l2-norm)
 		* [Dropout](#dropout)
 	* [3.3 Normalization functions](#normalization-functions)
 		* [Softmax](#softmax)
 		* [Batch Normalization](#batch-normalization)
-	* [3.3 Stochastic Gradient Descent (SGD)](#stochastic-gradient-descend-sgd)
+	* [3.3 Optimization](#optimization)
 		* [Gradient](#gradient)
 		* [Forward Propagation](#forward-propagation)
 		* [Backward Propagation](#backward-propagation)
+		* [Stochastic Gradient Descent](#sgd)
+		* [Root Mean Squared Propagation (RMSProp)](#rmsprop)
+		* [Adam](#adam)
 * [4. Sources](#sources)
 	
 
@@ -78,7 +82,7 @@ $$ \operatorname{ReLU}(x) = \max(x, 0) $$
 * It permit some informations to still get through the network even when the argument is **negative**.
 
 $$\operatorname{leaky ReLU}(x) = \max(0, x) + \alpha \min(0, x)$$
-* Where $\alpha$ is a learnable parameter.
+* *Where $\alpha$ is a learnable parameter*.
 
 </details>
 
@@ -167,7 +171,7 @@ $$\operatorname{tanh}(x) = \frac{1 - \exp(-2x)}{1 + \exp(-2x)}$$
 
 
 [//]: #mlp
-<a id="mlp"></a><details open>
+<a id="mlp"></a><details>
 <summary> Multi-Layer Perceptron (MLP) </summary>
 
 <p align="center"><img src="assets/images/mlmodels/mlp.png" width=45% height=45%></p>
@@ -180,7 +184,7 @@ $$\operatorname{tanh}(x) = \frac{1 - \exp(-2x)}{1 + \exp(-2x)}$$
 $$\mathbf{H} =  \sigma(\mathbf{X} \mathbf{W}^{(1)} + \mathbf{b}^{(1)})$$
 $$\mathbf{O} = \mathbf{H}\mathbf{W}^{(2)} + \mathbf{b}^{(2)}$$
 
-* Where $H$ is the **hidden layer,** $\sigma$  is the **activation function**, $X$ is the **input data,** $W$ is the **weights,** $b$ is the **bias**, $O$ is the **output layer**.
+* *Where $H$ is the hidden layer, $\sigma$  is the activation function, $X$ is the input data, $W$ is the weights, $b$ is the bias, $O$ is the output layer*.
 </details>
 
 ---
@@ -209,7 +213,7 @@ $$\mathbf{O} = \mathbf{H}\mathbf{W}^{(2)} + \mathbf{b}^{(2)}$$
 * Used for training in **maximum-margin** classification.
 * Known for being used in [Support Vector Machine](#svm) (SVM)
 $$\ell(y) = max(0, 1 - t \cdot y)$$
-* Where $t$ is the **actual outcome** *(either -1 or 1)* and $y$ is the **output** of the classifier. 
+* *Where $t$ is the actual outcome (either -1 or 1) and $y$ is the output of the classifier*
 </details>
 
 
@@ -217,28 +221,20 @@ $$\ell(y) = max(0, 1 - t \cdot y)$$
 <a id="cross-entropy-loss"></a><details>
 <summary> Cross-Entropy Loss</summary>
 
-- Used in **binary** and **multiclass** classification
+* Also known as **logarithmic loss**
+* Used in **binary** and **multiclass** classification
 * **Entropy** means the average level of randomness or uncertainty.
 * It measures the difference between **two probability distributions**:
 	1. The discovered probability distribution of a ML classification model
 	2. The predicted distribution
-* Often compared to [log loss](#log-loss)
 * **Binary** Cross-Entropy Loss:
-$$l = -(ylog(p) + (1 - y)log(1 - p))$$
-* Where $p$ is the *predicted probability* and $y$ is the *actual outcome* (0 or 1)
+$$l = -(ylog(\hat{y}) + (1 - y)log(1 - \hat{y}))$$
+* Where $\hat{y}$ is the *predicted value* and $y$ is the *actual value* (0 or 1)
 * **Multiclass** Cross-Entropy Loss:
-$$l =-\sum_i^C y_i log(p_i)$$
-* Where $y_i$ is the *actual outcome*, $p_i$ is the *predicted probability* of the $i^{th}$ label, and $C$ the *number of classes*
+$$l =-\sum_{i=1}^N y_i log(\hat{y}_i)$$
+* *Where $y_i$ is the actual value, $\hat{y}_i$ is the predicted value of the $i^{th}$ label, and $N$ the number of classes*
 * We calculate a separate loss for each label and sum the result.
 
-</details>
-
-
-[//]: #log-loss
-<a id="log-loss"></a><details>
-<summary> Log Loss</summary>
-
-*@TODO*
 </details>
 
 
@@ -246,9 +242,26 @@ $$l =-\sum_i^C y_i log(p_i)$$
 <a id="mse"></a><details>
 <summary> Mean Squared Error (MSE)</summary>
 
-*@TODO*
+* Used in **regression** problems.
+* Similar implementation as [MAE](#mae) Loss, with a huge **error penalty** due to the **squaring part** of the function.
+* It squares the difference between the predictions and the ground truth. and average it across the whole dataset.
+$$\mathbf{MSE} = \dfrac{1}{N}\sum_{i=1}^{N}(y_i - \hat{y}_i)^2$$
+* *Where $N$ is the number of samples we are testing against, $y$ is the actual value and $\hat{y}$ is the predicted value*
+
 </details>
 
+
+[//]: #mae
+<a id="mae"></a><details>
+<summary> Mean Absolute Error (MAE)</summary>
+
+* Used in **regression** problems.
+* Similar implementation as [MSE](#mse) Loss, with the **absolute values** of the prediction and the ground truth instead of the squared **error penalty** of these values.
+$$\mathbf{MAE} = \dfrac{1}{N}\sum_{i=1}^{N}\lvert y_i - \hat{y}_i\lvert$$
+* *Where $N$ is the number of samples we are testing against, $y$ is the actual value and $\hat{y}$ is the predicted value*
+
+
+</details>
 
 [//]: #likelihood-loss
 <a id="likelihood-loss"></a><details>
@@ -260,6 +273,16 @@ $$l =-\sum_i^C y_i log(p_i)$$
 ---
 
 ## Regularization Functions
+
+> Regularization functions are used to avoid [overfitting](#) and [underfitting](#).
+
+[//]: #weight-decay
+<a id="weight-decay"></a><details>
+<summary> Weight Decay </summary>
+
+*@TODO*
+</details>
+
 
 [//]: #l1-norm
 <a id="l1-norm"></a><details>
@@ -283,6 +306,7 @@ $$l =-\sum_i^C y_i log(p_i)$$
 
 *@TODO*
 </details>
+
 
 ---
 ## Normalization Functions
@@ -310,7 +334,7 @@ $$\sigma(z_i) = \frac{e^{z_{i}}}{\sum_{j=1}^K e^{z_{j}}}$$
 
 ---
 
-## Stochastic Gradient Descend (SGD)
+## Optimization
 [//]: #gradient
 <a id="gradient"></a><details>
 <summary> Gradient</summary>
@@ -322,7 +346,7 @@ $$\sigma(z_i) = \frac{e^{z_{i}}}{\sum_{j=1}^K e^{z_{j}}}$$
 [//]: #forward-propagation
 <a id="forward-propagation"></a><details>
 <summary> Forward Propagation</summary>
-
+\lvert
 *@TODO*
 </details>
 
@@ -334,6 +358,32 @@ $$\sigma(z_i) = \frac{e^{z_{i}}}{\sum_{j=1}^K e^{z_{j}}}$$
 *@TODO*
 </details>
 
+
+[//]: #sgd
+<a id="sgd"></a><details>
+<summary> Stochastic Gradient Descent (SGD) </summary>
+
+*@TODO*
+</details>
+
+
+[//]: #rmsprop
+<a id="rmsprop"></a><details>
+<summary> Root Mean Squared Propagation (RMSProp) </summary>
+
+*@TODO*
+</details>
+
+
+[//]: #adam
+<a id="adam"></a><details>
+<summary> Adam </summary>
+
+*@TODO*
+</details>
+
+
+
 --- 
 # Sources
 * https://cs231n.github.io/
@@ -342,3 +392,4 @@ $$\sigma(z_i) = \frac{e^{z_{i}}}{\sum_{j=1}^K e^{z_{j}}}$$
 * https://towardsdatascience.com/activation-functions-neural-networks-1cbd9f8d91d6
 * https://en.wikipedia.org/wiki/Multilayer_perceptron
 * https://d2l.ai/chapter_multilayer-perceptrons/index.html
+* https://towardsdatascience.com/understanding-the-3-most-common-loss-functions-for-machine-learning-regression-23e0ef3e14d3
