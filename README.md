@@ -101,9 +101,9 @@ $$\operatorname{tanh}(x) = \frac{1 - \exp(-2x)}{1 + \exp(-2x)}$$
 
 <p align="center"> <img src="assets/images/activationfunctions/sigmoid.jpg" width=40% height=40%></p>
 
-* Use to interpret the output as probabilities for **binary classification problems**.
-* Often replaced by a [ReLU](#relu) because it can causes **vanishing gradients**.
-
+* Use to interpret the output as probabilities for **binary classification problems**
+* Often replaced by a [ReLU](#relu) because it can causes **vanishing gradients**
+* Squashes its input between 0 and 1
 </details>
 
 ---
@@ -136,6 +136,9 @@ $$\operatorname{tanh}(x) = \frac{1 - \exp(-2x)}{1 + \exp(-2x)}$$
 
 * It tries to find a line that **maximises** the separation between a **two-class** (SVM) or more (Multiclass SVM) dataset.
 * The datapoints with the minimum distance to the hyperplane are called **Support Vectors**.
+* Use the [hinge loss](#loss-functions) to threshold the result to 0 if the correct score is greater than the incorrect class score by at least the margin.
+	* The SVM only cares if the difference is lower than the margin $\Delta$
+* Similar results as [Softmax Classifier](#softmax-classifier)
 * Can performs **non-linear** classifications using a **kernel trick**, implicitly mapping their inputs into high-dimensional feature spaces.
 * The different **kernel functions** will define the smoothness and efficiency of the separation :
 	* Linear
@@ -146,10 +149,6 @@ $$\operatorname{tanh}(x) = \frac{1 - \exp(-2x)}{1 + \exp(-2x)}$$
 
 <p align="center"><img src="assets/images/mlmodels/svmkernels.webp" width=40% height=40%></p>
 
-*These functions will determine the smoothness and efficiency of class separation.*
-* Use the [hinge loss](#loss-functions) to threshold the result to 0 if the correct score is greater than the incorrect class score by at least the margin.
-	* The SVM only cares if the difference is lower than the margin $\Delta$
-* Similar results as [Softmax Classifier](#softmax-classifier)
 
 </details>
 
@@ -177,10 +176,12 @@ $$\operatorname{tanh}(x) = \frac{1 - \exp(-2x)}{1 + \exp(-2x)}$$
 * Contains **hidden layers** between input and output.
 *  It can distinguish data that is not **linearly separable**.
 * We can compute the different layers this way:
-$$\begin{split}\begin{aligned}
+
+$$ \begin{split}\begin{aligned}
     \mathbf{H} & = \sigma(\mathbf{X} \mathbf{W}^{(1)} + \mathbf{b}^{(1)}) \\
     \mathbf{O} & = \mathbf{H}\mathbf{W}^{(2)} + \mathbf{b}^{(2)}\\
-\end{aligned}\end{split}$$
+\end{aligned}\end{split} $$
+
 * Where $H$ is the **hidden layer,** $\sigma$  is the **activation function**, $X$ is the **input data,** $W$ is the **weights,** $b$ is the **bias**, $O$ is the **output layer**.
 </details>
 
