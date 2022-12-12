@@ -10,7 +10,7 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months, 
 		* [Leaky Rectified Linear Unit (Leaky ReLU)](#relu)
 		* [Tanh](#tanh)
 		* [Sigmoid](#sigmoid)
-	* [2.2 Models]()
+	* [2.2 Models](#models)
 		* [Machine Learning](#machine-learning)
 			* [k-Nearest Neighbor (kNN)](#knn)
 			* [Support Vector Machine (SVM)](#svm)
@@ -19,13 +19,14 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months, 
 		* [Deep Learning](#deep-learning)
 			* [Convolutional Neural Network (CNN)](#convolutional-neural-network)
 			* [Recurrent Neural Network (RNN)](#recurrent-neural-network)
+				* [Gated Recurrent Unit (GRU)](#gru)
+				* [Long Short Term Memory (LSTM)](#lstm)
 * [3. Training](#training)
 	* [3.1 Loss functions](#loss-functions)
 		* [Hinge Loss](#hinge-loss)
 		* [Cross-Entropy Loss](#cross-entropy-loss)
-		* [Mean Squared Error (MSE)](#mse)
+		* [Mean Square Error (MSE)](#mse)
 		* [Mean Absolute Error (MAE)](#mse)
-		* [Likelihood Loss](#likelihood-loss)
 	* [3.2 Regularization functions](#regularization-functions)
 		* [Weight Decay](#weight-decay)
 		* [L1 Norm](#l1-norm)
@@ -43,7 +44,6 @@ A non-exhaustive cheat sheet about what I learned in AI during the last months, 
 		* [Adam](#adam)
 * [4. Sources](#sources)
 	
-
 ---
 
 # Data
@@ -82,7 +82,7 @@ $$ \operatorname{ReLU}(x) = \max(x, 0) $$
 * It permit some informations to still get through the network even when the argument is **negative**.
 
 $$\operatorname{leaky ReLU}(x) = \max(0, x) + \alpha \min(0, x)$$
-* *Where $\alpha$ is a learnable parameter*.
+* *Where $\alpha$ is a learnable parameter*
 
 </details>
 
@@ -140,10 +140,10 @@ $$\operatorname{tanh}(x) = \frac{1 - \exp(-2x)}{1 + \exp(-2x)}$$
 
 * It tries to find a line that **maximises** the separation between a **two-class** (SVM) or more (Multiclass SVM) dataset.
 * The datapoints with the minimum distance to the hyperplane are called **Support Vectors**.
-* Use the [hinge loss](#loss-functions) to threshold the result to 0 if the correct score is greater than the incorrect class score by at least the margin.
+* Use the [hinge loss](#loss-functions) to threshold the result to 0 if the correct score is greater than the incorrect class score by at least the margin
 	* The SVM only cares if the difference is lower than the margin $\Delta$
 * Similar results as [Softmax Classifier](#softmax-classifier)
-* Can performs **non-linear** classifications using a **kernel trick**, implicitly mapping their inputs into high-dimensional feature spaces.
+* Can performs **non-linear** classifications using a **kernel trick**, implicitly mapping their inputs into high-dimensional feature spaces
 * The different **kernel functions** will define the smoothness and efficiency of the separation :
 	* Linear
 	* Polynomial
@@ -152,7 +152,6 @@ $$\operatorname{tanh}(x) = \frac{1 - \exp(-2x)}{1 + \exp(-2x)}$$
 	* Radial Basis Function (RBF)
 
 <p align="center"><img src="assets/images/mlmodels/svmkernels.webp" width=40% height=40%></p>
-
 
 </details>
 
@@ -176,9 +175,9 @@ $$\operatorname{tanh}(x) = \frac{1 - \exp(-2x)}{1 + \exp(-2x)}$$
 
 <p align="center"><img src="assets/images/mlmodels/mlp.png" width=45% height=45%></p>
 
-* A **fully-connected feedforward** neural network.
-* Contains **hidden layers** between input and output.
-*  It can distinguish data that is not **linearly separable**.
+* A **fully-connected feedforward** neural network
+* Contains **hidden layers** between input and output
+*  It can distinguish data that is not **linearly separable**
 * We can compute the different layers this way:
 
 $$\mathbf{H} =  \sigma(\mathbf{X} \mathbf{W}^{(1)} + \mathbf{b}^{(1)})$$
@@ -197,7 +196,27 @@ $$\mathbf{O} = \mathbf{H}\mathbf{W}^{(2)} + \mathbf{b}^{(2)}$$
 ---
 
 #### Recurrent Neural Network
-*@TODO*
+> A **RNN** is a kind of Neural Networks used when we want to perform predictive operations on **sequential** or **time-series** based data. 
+>
+> They are commonly used in **Natural Language Processing**
+>
+> They are incorporated with **memory**, giving the outputs based on previous input and its context
+>
+>The RNN shares parameters across each layer of the network. 
+
+[//]: #gru
+<a id="gru"></a><details>
+<summary> Gated Recurrent Unit (GRU)</summary>
+
+</details>
+
+
+[//]: #lstm
+<a id="lstm"></a><details>
+<summary> Long Short Term Memory (LSTM)</summary>
+
+
+</details>
 
 ---
 # Training
@@ -210,8 +229,8 @@ $$\mathbf{O} = \mathbf{H}\mathbf{W}^{(2)} + \mathbf{b}^{(2)}$$
 <a id="hinge-loss"></a><details>
 <summary> Hinge Loss</summary>
 
-* Also known as **maximum-margin loss**.
-* Used for training in **maximum-margin** classification.
+* Also known as **maximum-margin loss**
+* Used in **classification problems**
 * Known for being used in [Support Vector Machine](#svm) (SVM)
 $$\ell(y) = max(0, 1 - t \cdot y)$$
 * Where $t$ is the actual outcome (either -1 or 1) and $y$ is the output of the classifier
@@ -228,24 +247,25 @@ $$\ell(y) = max(0, 1 - t \cdot y)$$
 * It measures the difference between **two probability distributions**:
 	1. The discovered probability distribution of a ML classification model
 	2. The predicted distribution
-* **Binary** Cross-Entropy Loss:
+* **Binary Cross-Entropy** Loss:
 $$l = -(ylog(\hat{y}) + (1 - y)log(1 - \hat{y}))$$
 * Where $\hat{y}$ is the predicted value and $y$ is the actual value (0 or 1)
-* **Multiclass** Cross-Entropy Loss:
+* **Multiclass Cross-Entropy** Loss also known as **Negative Log-Likelihood** Loss:
 $$l =-\sum_{i=1}^N y_i log(\hat{y}_i)$$
 * Where $y_i$ is the actual value, $\hat{y}_i$ is the predicted value of the $i^{th}$ label, and $N$ the number of classes
-* We calculate a separate loss for each label and sum the result.
+* We calculate a separate loss for each label and sum the result
 
 </details>
 
 
 [//]: #mse
 <a id="mse"></a><details>
-<summary> Mean Squared Error (MSE)</summary>
+<summary> Mean Square Error (MSE)</summary>
 
-* Used in **regression** problems.
-* Similar implementation as [MAE](#mae) Loss, with a huge **error penalty** due to the **squaring part** of the function.
-* It squares the difference between the predictions and the ground truth. and average it across the whole dataset.
+* Also known as **Quadratic Loss** or **[L2](#l2-norm) Loss**
+* Used in **regression** problems
+* Similar implementation as [MAE](#mae) Loss, with a huge **error penalty** due to the **squaring part** of the function
+* It squares the difference between the predictions and the ground truth. and average it across the whole dataset
 $$\mathbf{MSE} = \dfrac{1}{N}\sum_{i=1}^{N}(y_i - \hat{y}_i)^2$$
 * Where $N$ is the number of samples we are testing against, $y$ is the actual value and $\hat{y}$ is the predicted value
 
@@ -256,19 +276,13 @@ $$\mathbf{MSE} = \dfrac{1}{N}\sum_{i=1}^{N}(y_i - \hat{y}_i)^2$$
 <a id="mae"></a><details>
 <summary> Mean Absolute Error (MAE)</summary>
 
-* Used in **regression** problems.
-* Similar implementation as [MSE](#mse) Loss, with the **absolute values** of the prediction and the ground truth instead of the squared **error penalty** of these values.
+* Also known as **[L1](#l1-norm) Loss**
+* Used in **regression** problems
+* Similar implementation as [MSE](#mse) Loss, with the **absolute values** of the prediction and the ground truth instead of the squared **error penalty** of these values
 $$\mathbf{MAE} = \dfrac{1}{N}\sum_{i=1}^{N}\lvert y_i - \hat{y}_i\lvert$$
 * Where $N$ is the number of samples we are testing against, $y$ is the actual value and $\hat{y}$ is the predicted value
 
 
-</details>
-
-[//]: #likelihood-loss
-<a id="likelihood-loss"></a><details>
-<summary> Likelihood Loss</summary>
-
-*@TODO*
 </details>
 
 ---
@@ -320,8 +334,8 @@ $$\mathbf{MAE} = \dfrac{1}{N}\sum_{i=1}^{N}\lvert y_i - \hat{y}_i\lvert$$
 * Often used as the last *activation-functions* of a Neural Network to normalizes ouptuts as probabilities
 * Often paired with **argmax** function that permits to get the highest probability
 $$\sigma(z_i) = \frac{e^{z_{i}}}{\sum_{j=1}^K e^{z_{j}}}$$
-* Where $z$ is the vector of *raw outputs* from the Neural Network, $K$  is the number of classes.
-	* We divide the exponential of one element of the output to the sum of all exponentials values of the output vector.
+* Where $z$ is the vector of *raw outputs* from the Neural Network, $K$  is the number of classes
+	* We divide the exponential of one element of the output to the sum of all exponentials values of the output vector
 </details>
 
 
@@ -331,7 +345,6 @@ $$\sigma(z_i) = \frac{e^{z_{i}}}{\sum_{j=1}^K e^{z_{j}}}$$
 
 *@TODO*
 </details>
-
 
 ---
 
@@ -347,7 +360,7 @@ $$\sigma(z_i) = \frac{e^{z_{i}}}{\sum_{j=1}^K e^{z_{j}}}$$
 [//]: #forward-propagation
 <a id="forward-propagation"></a><details>
 <summary> Forward Propagation</summary>
-\lvert
+
 *@TODO*
 </details>
 
@@ -394,3 +407,4 @@ $$\sigma(z_i) = \frac{e^{z_{i}}}{\sum_{j=1}^K e^{z_{j}}}$$
 * https://en.wikipedia.org/wiki/Multilayer_perceptron
 * https://d2l.ai/chapter_multilayer-perceptrons/index.html
 * https://towardsdatascience.com/understanding-the-3-most-common-loss-functions-for-machine-learning-regression-23e0ef3e14d3
+* https://analyticsindiamag.com/lstm-vs-gru-in-recurrent-neural-network-a-comparative-study/
